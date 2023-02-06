@@ -1,0 +1,64 @@
+<head>
+  <script>
+    //  6kyu Stop gninnipS My sdroW!
+
+    //  Write a function that takes in a string of one or more words, and
+    //  returns the same string, but with all five or more letter words
+    //  reversed (Just like the name of this Kata). Strings passed in will
+    //  consist of only letters and spaces. Spaces will be included only
+    //  when more than one word is present.
+
+    // Examples:
+
+    // spinWords( "Hey fellow warriors" ) => returns "Hey wollef sroirraw"
+    // spinWords( "This is a test") => returns "This is a test"
+    // spinWords( "This is another test" )=> returns "This is rehtona test"
+
+    function spinWords(string) {
+      let splittedWord = string.split(" ");
+      var result = [];
+      for (word of splittedWord) {
+        if (word.length >= 5) {
+          result.push(word.split("").reverse().join(""));
+        } else result.push(word);
+      }
+      result = result.toString();
+      let resultWithSpaces = result.replace(/,/g, " ");
+      return resultWithSpaces;
+    }
+
+    // console.log(spinWords("Welcome saas sa 123556"));
+
+    // ==============================================================================================
+
+    // 6kyu Find the odd int
+
+    // Given an array of integers, find the one that appears an odd number of times.
+
+    // There will always be only one integer that appears an odd number of times.
+    // Examples
+
+    // [7] should return 7, because it occurs 1 time (which is odd).
+    // [0] should return 0, because it occurs 1 time (which is odd).
+    // [1,1,2] should return 2, because it occurs 1 time (which is odd).
+    // [0,1,0,1,0] should return 0, because it occurs 3 times (which is odd).
+    // [1,2,2,3,3,3,4,3,3,3,2,2,1] should return 4, because it appears 1 time (which is odd).
+
+    function findOdd(A) {
+      let digitCollection = [];
+      for (digit of A) {
+        if (!digitCollection.includes(digit)) digitCollection.push(digit);
+      }
+      for (digit of digitCollection) {
+        let counter = 0;
+        for (item of A) {
+          if (digit === item) counter++;
+        }
+        if (counter % 2 === 1) return digit;
+      }
+      return 0;
+    }
+
+    // findOdd([6, 2, 2, 2, 2]);
+  </script>
+</head>
