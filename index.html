@@ -195,5 +195,69 @@
     console.log(
       moveZeros([9, 0, 0, 9, 1, 2, 0, 1, 0, 1, 0, 3, 0, 1, 9, 0, 0, 0, 0, 9])
     );
+
+    //==================================================================================
+    // 5 kyu
+    // Simple Pig Latin
+
+    // Move the first letter of each word to the end of it, then add "ay" to the end of the word. Leave punctuation marks untouched.
+    // Examples
+
+    // pigIt('Pig latin is cool'); // igPay atinlay siay oolcay
+    // pigIt('Hello world !');     // elloHay orldway !
+
+    function pigIt(str) {
+      const splitted2 = [];
+      str.split(" ").forEach((word) => {
+        if (!word.match(/[!.?]/g))
+          splitted2.push(word.substring(1) + word.substring(0, 1) + "ay");
+        else splitted2.push(word);
+      });
+      return splitted2.join(" ");
+    }
+    pigIt("Quis custodiet ipsos custodes ?");
+
+    //==================================================================================
+    // 7 kyu
+    // Vowel Count
+
+    // Return the number (count) of vowels in the given string.
+
+    // We will consider a, e, i, o, u as vowels for this Kata (but not y).
+
+    // The input string will only consist of lower case letters and/or spaces.
+
+    function getCount(str) {
+      return str.split("").filter((char) => char.match(/[aeiou]/)).length;
+    }
+
+    // getCount("abracadabra");
+
+    // 5 kyu
+    // Valid Parentheses
+
+    // Write a function that takes a string of parentheses, and determines if the order of the parentheses is valid. The function should return true if the string is valid, and false if it's invalid.
+    // Examples
+
+    // "()"              =>  true
+    // ")(()))"          =>  false
+    // "("               =>  false
+    // "(())((()())())"  =>  true
+
+    // Constraints
+
+    // 0 <= input.length <= 100
+
+    function validParentheses(str) {
+      let x = 0;
+      for (let item of str.split("")) {
+        if (item === "(") x++;
+        else if (item === ")") x--;
+        if (x < 0) break;
+      }
+      return x === 0 ? true : false;
+    }
+
+    validParentheses("((");
   </script>
 </head>
